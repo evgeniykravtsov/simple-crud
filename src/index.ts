@@ -4,6 +4,7 @@ import { getAllUsers } from './routeHelpers/getAllusers.js';
 import { getUserForId } from './routeHelpers/getUserForId.js';
 import { addUser } from './routeHelpers/addUser.js';
 import { changeUser } from './routeHelpers/changeUser.js';
+import { deleteUser } from './routeHelpers/deleteUser.js';
 
 const Server = http.createServer(async (req, res) => {
   const { url, method } = req;
@@ -21,8 +22,13 @@ const Server = http.createServer(async (req, res) => {
       addUser(req, res);
       break;
 
+
     case url.startsWith('/api/users') && method == 'PUT':
       changeUser(req, res, id);
+      break;
+
+    case url.startsWith('/api/users') && method == 'DELETE':
+      deleteUser(res, id);
       break;
 
     default:

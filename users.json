@@ -1,1 +1,8 @@
-{"e78fec08-a06c-4648-bf6a-f2c474b7564d":{"id":"e78fec08-a06c-4648-bf6a-f2c474b7564d","username":"newUserName","age":12123123123,"hobbies":["Hobbiieee"]},"a6794676-cb7e-40d7-8027-ded5915b7ef8":{"id":"a6794676-cb7e-40d7-8027-ded5915b7ef8","username":"asd","age":12,"hobbies":[]},"fbae2306-7885-4af8-9153-ae05a08658d8":{"id":"fbae2306-7885-4af8-9153-ae05a08658d8","username":"asd","age":12,"hobbies":[]},"d9f49e18-fa82-457c-916c-7245632b8339":{"id":"d9f49e18-fa82-457c-916c-7245632b8339","username":"asd","age":12,"hobbies":[]},"de235825-f46e-4ff5-9356-a8e9ef8f2b65":{"id":"de235825-f46e-4ff5-9356-a8e9ef8f2b65","username":"asd","age":12,"hobbies":[]},"54cc5612-fa88-495f-a3a7-e88d53542571":{"id":"54cc5612-fa88-495f-a3a7-e88d53542571","username":"asd","age":12,"hobbies":[]},"008d2cad-844d-46e8-9597-197115156bf0":{"id":"008d2cad-844d-46e8-9597-197115156bf0","username":"asd","age":12,"hobbies":[]}}
+{
+  "a6794676-cb7e-40d7-8027-ded5915b7ef8": {
+    "id": "a6794676-cb7e-40d7-8027-ded5915b7ef8",
+    "username": "asd",
+    "age": 12,
+    "hobbies": []
+  }
+}

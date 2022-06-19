@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --config nodemon.json src/index.ts"
+    "start:dev": "nodemon --config nodemon.json src/index.ts",
+    "start:prod": "tsc -p . && node dist/index.js"
   },
   "keywords": [],
   "author": "",

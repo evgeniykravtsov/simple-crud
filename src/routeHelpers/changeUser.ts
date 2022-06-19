@@ -1,5 +1,6 @@
 import { validateUsersKey, getUsers } from '../utils.js';
 import * as fs from 'fs';
+import { validate as uuidValidate } from 'uuid';
 
 export const changeUser = (req, res, id) => {
   let body = '';
@@ -12,7 +13,7 @@ export const changeUser = (req, res, id) => {
     try {
       const post = JSON.parse(body);
 
-      if (validateUsersKey(post)) {
+      if (validateUsersKey(post) && uuidValidate(id)) {
         console.log('valid!');
         if (users[id]) {
           console.log('User found!!');
