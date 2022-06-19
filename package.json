@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "start:dev": "nodemon --config nodemon.json src/index.ts",
-    "start:prod": "tsc -p . && node dist/index.js --experimental-json-modules  --experimental-specifier-resolution=node"
+    "start:prod": "tsc  && node --experimental-json-modules  --experimental-specifier-resolution=node dist/index.js "
   },
   "keywords": [],
   "author": "",
