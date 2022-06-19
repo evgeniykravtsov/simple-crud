@@ -1,42 +1,32 @@
 import http from 'http';
 import 'dotenv/config';
-import  users from '../users.json';
-import { v4 as uuidv4, validate as uuidValidate } from 'uuid';
+import { getAllUsers } from './routeHelpers/getAllusers.js';
+import { getUserForId } from './routeHelpers/getUserForId.js';
+import { addUser } from './routeHelpers/addUser.js';
 
-const Server = http.createServer(({url, method}, res) => {
-
+const Server = http.createServer(async (req, res) => {
+  const { url, method } = req;
+  const id = url.slice(11);
   switch (true) {
     case url === '/api/users' && method == 'GET':
-      res.writeHead(200, { 'Content-type': 'application/json' });
-      res.end(JSON.stringify(users));
+      getAllUsers(res);
       break;
-    case url.startsWith('/api/users/') && method == 'GET':
-        let id = url.slice(11)
-        if(uuidValidate(id)) {
-          console.log(users, 'userStore');
-          console.log(id, 'id');
 
-          if(users[id]) {
-            res.writeHead(200, { 'Content-type': 'application/json' });
-            res.end(JSON.stringify(users[id]));
-          } else {
-            res.writeHead(404, { 'Content-type': 'text/html; charset=utf-8' });
-            res.end('User not found!');
-          }
-        } else {
-          res.writeHead(400, { 'Content-type': 'text/html; charset=utf-8' });
-          res.end('Id invalid!');
-        }
-        case url.startsWith('/api/users/') && method == 'GET':
+    case url.startsWith('/api/users/') && method == 'GET':
+      getUserForId(req, id);
+      break;
+
+    case url.startsWith('/api/users') && method == 'POST':
+      addUser(req, res);
+      break;
 
     default:
-      res.writeHead(200, { 'Content-type': 'application/json' });
-      res.end('end');
+      res.writeHead(404, { 'Content-type': 'application/json' });
+      res.end('This api route not found!');
+      break;
   }
 });
 
 Server.listen(process.env.PORT, () => {
   console.log('Server is running on port 3000. Go to http://localhost:3000/');
 });
-
-// Server.close();

@@ -5,30 +5,24 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon --config nodemon.json src/index.ts",
-    "prettier": "prettier 'src/**/*.ts'",
-    "prettier:fix": "prettier --write 'src/**/*.ts'",
-    "eslint": "eslint 'src/**/*.ts'",
-    "eslint:fix": "eslint --fix 'src/**/*.ts'"
+    "start": "nodemon --config nodemon.json src/index.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^17.0.45",
     "@types/uuid": "^8.3.4",
-    "@typescript-eslint/eslint-plugin": "5.27.1",
-    "@typescript-eslint/parser": "5.27.1",
-    "eslint": "8.17.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-prettier": "4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.28.0",
+    "@typescript-eslint/parser": "^5.28.0",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
     "nodemon": "^2.0.16",
-    "prettier": "2.6.2",
+    "prettier": "^2.7.1",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
   },
   "dependencies": {
-    "@types/node": "^17.0.41",
     "dotenv": "^16.0.1",
     "uuid": "^8.3.2"
   }
