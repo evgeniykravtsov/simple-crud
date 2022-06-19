@@ -1,4 +1,4 @@
-import { getUsers } from '../utils.js';
+import { getUsers } from '../utils';
 import { validate as uuidValidate } from 'uuid';
 
 export const getUserForId = (res, id) => {
@@ -7,7 +7,9 @@ export const getUserForId = (res, id) => {
   if (uuidValidate(id)) {
     if (users[id]) {
       res.writeHead(200, { 'Content-type': 'application/json' });
-      res.end(JSON.stringify(users[id]));
+      res.write(JSON.stringify(users[id]));
+
+      res.end();
     } else {
       res.writeHead(404, { 'Content-type': 'text/html; charset=utf-8' });
       res.end('User not found!');

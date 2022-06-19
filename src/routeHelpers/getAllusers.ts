@@ -1,4 +1,4 @@
-import { getUsers } from '../utils.js';
+import { getUsers } from '../utils';
 
 export const getAllUsers = res => {
   const users = getUsers();

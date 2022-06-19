@@ -1,12 +1,12 @@
 import http from 'http';
 import 'dotenv/config';
-import { getAllUsers } from './routeHelpers/getAllusers.js';
-import { getUserForId } from './routeHelpers/getUserForId.js';
-import { addUser } from './routeHelpers/addUser.js';
-import { changeUser } from './routeHelpers/changeUser.js';
-import { deleteUser } from './routeHelpers/deleteUser.js';
+import { getAllUsers } from './routeHelpers/getAllusers';
+import { getUserForId } from './routeHelpers/getUserForId';
+import { addUser } from './routeHelpers/addUser';
+import { changeUser } from './routeHelpers/changeUser';
+import { deleteUser } from './routeHelpers/deleteUser';
 
-const Server = http.createServer(async (req, res) => {
+export const Server = http.createServer(async (req, res) => {
   const { url, method } = req;
   const id = url.slice(11);
   switch (true) {
@@ -15,7 +15,7 @@ const Server = http.createServer(async (req, res) => {
       break;
 
     case url.startsWith('/api/users/') && method == 'GET':
-      getUserForId(req, id);
+      getUserForId(res, id);
       break;
 
     case url.startsWith('/api/users') && method == 'POST':

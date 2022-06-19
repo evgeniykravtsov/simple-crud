@@ -1,4 +1,4 @@
-import { getUsers } from '../utils.js';
+import { getUsers } from '../utils';
 import * as fs from 'fs';
 import { validate as uuidValidate } from 'uuid';
 
@@ -15,7 +15,7 @@ export const deleteUser = (res, id) => {
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        fs.writeFile('./users.json', JSON.stringify(data), err => {
+        fs.writeFile('./userson', JSON.stringify(data), err => {
           if (err) throw err;
           console.log('Data written to file');
         });

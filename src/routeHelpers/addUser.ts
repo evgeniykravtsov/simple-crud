@@ -1,4 +1,4 @@
-import { validateUsersKey, getUsers } from '../utils.js';
+import { validateUsersKey, getUsers } from '../utils';
 import { v4 as uuidv4 } from 'uuid';
 import * as fs from 'fs';
 
@@ -19,14 +19,14 @@ export const addUser = (req, res) => {
           ...users,
           [id]: { id, ...post },
         };
-        console.log(data, 'datas');
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         fs.writeFile('./users.json', JSON.stringify(data), err => {
           if (err) throw err;
           console.log('Data written to file');
         });
-        res.writeHead(201, { 'Content-Type': 'text/plain' });
+        res.writeHead(201, { 'Content-Type': 'application/json' });
+        res.write(JSON.stringify({ id, ...post }));
         res.end();
       } else {
         res.writeHead(404, { 'Content-type': 'text/html; charset=utf-8' });
@@ -35,7 +35,7 @@ export const addUser = (req, res) => {
     } catch (err) {
       res.writeHead(500, { 'Content-Type': 'text/plain' });
       res.write('Bad Post Data.  Is your data a proper JSON?\n');
-      res.end('dsa');
+      res.end();
       return;
     }
   });

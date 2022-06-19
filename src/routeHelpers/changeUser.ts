@@ -1,4 +1,4 @@
-import { validateUsersKey, getUsers } from '../utils.js';
+import { validateUsersKey, getUsers } from '../utils';
 import * as fs from 'fs';
 import { validate as uuidValidate } from 'uuid';
 
@@ -14,24 +14,22 @@ export const changeUser = (req, res, id) => {
       const post = JSON.parse(body);
 
       if (validateUsersKey(post) && uuidValidate(id)) {
-        console.log('valid!');
         if (users[id]) {
-          console.log('User found!!');
 
           const data = {
             ...users,
             [id]: { id, ...post },
           };
-          console.log(data, 'data!');
-
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
-          fs.writeFile('./users.json', JSON.stringify(data), err => {
+          fs.writeFile('./userson', JSON.stringify(data), err => {
             console.log(err, 'err');
             if (err) throw err;
             console.log('Data written to file');
           });
-          res.writeHead(200, { 'Content-Type': 'text/plain' });
+          res.writeHead(200, { 'Content-Type': 'application/json' });
+          res.write(JSON.stringify({ id, ...post }));
+
           res.end();
         } else {
           res.writeHead(404, { 'Content-type': 'text/html; charset=utf-8' });
