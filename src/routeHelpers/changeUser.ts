@@ -22,7 +22,7 @@ export const changeUser = (req, res, id) => {
           };
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore
-          fs.writeFile('./userson', JSON.stringify(data), err => {
+          fs.writeFile('./users.json', JSON.stringify(data), err => {
             console.log(err, 'err');
             if (err) throw err;
             console.log('Data written to file');

@@ -15,7 +15,7 @@ export const deleteUser = (res, id) => {
 
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
-        fs.writeFile('./userson', JSON.stringify(data), err => {
+        fs.writeFile('./users.json', JSON.stringify(data), err => {
           if (err) throw err;
           console.log('Data written to file');
         });
