@@ -1,5 +1,6 @@
 import { validateUsersKey, getUsers } from '../utils.js';
 import { v4 as uuidv4 } from 'uuid';
+import * as fs from 'fs';
 
 export const addUser = (req, res) => {
   let body = '';
